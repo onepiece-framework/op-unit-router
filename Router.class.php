@@ -55,13 +55,11 @@ class Router implements IF_UNIT
 	 *  For example currency, tax, holiday.
 	 *  </pre>
 	 *
-	 * @creation 2019-03-19
+	 * @created  2019-03-19
 	 * @return   array
 	 */
-	/*
 	function G11n()
 	{
 		return $this->_route['g11n'] ?? null;
 	}
-	*/
 }
