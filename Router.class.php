@@ -22,7 +22,6 @@ namespace OP\UNIT;
 use OP\OP_CORE;
 use OP\OP_UNIT;
 use OP\IF_UNIT;
-use OP\UNIT_ROUTER;
 
 /** Router
  *
@@ -40,7 +39,7 @@ class Router implements IF_UNIT
 	/** trait.
 	 *
 	 */
-	use OP_CORE, OP_UNIT, UNIT_ROUTER;
+	use OP_CORE, OP_UNIT;
 
 	/** g11n is Globalization.
 	 *
