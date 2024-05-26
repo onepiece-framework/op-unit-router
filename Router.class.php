@@ -20,11 +20,7 @@ namespace OP\UNIT;
  */
 use OP\OP_CI;
 use OP\OP_CORE;
-use OP\OP_UNIT;
 use OP\IF_UNIT;
-use OP\Env;
-use function OP\RootPath;
-use function OP\ConvertPath;
 use OP\UNIT\Router\ROUTER_2018;
 
 /** Include
@@ -48,7 +44,7 @@ class Router implements IF_UNIT
 	/** trait.
 	 *
 	 */
-	use OP_CORE, OP_UNIT, OP_CI, ROUTER_2018;
+	use OP_CORE, OP_CI, ROUTER_2018;
 
 	/** Use for route table's associative array key name.
 	 *
@@ -85,136 +81,6 @@ class Router implements IF_UNIT
 	{
 		//	...
 		$this->_Init();
-		return;
-
-		//	...
-		require_once('function/CalcRoute2020.php');
-		$this->_route = \OP\UNIT\ROUTER\Calculate();
-		return;
-
-		//	...
-		if(!Env::isHttp() ){
-			return;
-		};
-
-		//	...
-		$config = Env::Get('router');
-
-		//	...
-		$this->_route = [];
-		$this->_route[self::_ARGS_] = [];
-		$this->_route[self::_END_POINT_] = null;
-
-		//	...
-		$app_root = RootPath()['app'];
-
-		//	Separate of URL Query.
-		if( $pos   = strpos($_SERVER['REQUEST_URI'], '?') ){
-			$uri   = substr($_SERVER['REQUEST_URI'], 0, $pos);
-			/*
-			 $query = substr($_SERVER['REQUEST_URI'], $pos +1);
-			 var_dump($pos, $uri, $query);
-			 */
-		}else{
-			$uri   = $_SERVER['REQUEST_URI'];
-		};
-
-		//	Generate real full path.
-		$full_path = $_SERVER['DOCUMENT_ROOT'].$uri;
-
-		/*
-		$full_path = $_SERVER['DOCUMENT_ROOT'].$_SERVER['REQUEST_URI'];
-
-		//	Separate url query.
-		if( $pos = strpos($full_path, '?') ){
-			//	Separate url query.
-			$full_path = substr($full_path, 0, $pos);
-		}
-		*/
-
-		/*
-		//	HTML path through.
-		if( $config['html-path-through'] ?? null ){
-			//	Get extension.
-			$extension = substr($full_path, strrpos($full_path, '.')+1);
-
-			//	In case of html.
-			if( $extension === 'html' ){
-				if( file_exists($full_path) ){
-					$this->_route[self::_END_POINT_] = $full_path;
-					return;
-				}
-			}
-		}
-		*/
-
-		//	...
-		if( file_exists($full_path) ){
-			//	Get extension.
-			$extension = substr($full_path, strrpos($full_path, '.')+1);
-
-			//	...
-			switch( $extension ){
-				case 'html':
-					//	HTML path through.
-					$io = $config['html-path-through'] ?? true;
-					break;
-
-				case 'js':
-					$io = true;
-					Env::Mime('text/javascript');
-					break;
-
-				case 'css':
-					$io = true;
-					Env::Mime('text/css');
-					break;
-			};
-
-			//	...
-			if( $io ?? null ){
-				$this->_route[self::_END_POINT_] = $full_path;
-				return;
-			};
-		};
-
-		//	Remove application root: /www/htdocs/api/foo/bar/ --> api/foo/bar/
-		$uri = str_replace($app_root, '', $full_path);
-
-		//	Remove slash from tail: api/foo/bar/ --> api/foo/bar
-		$uri  = rtrim($uri, '/');
-
-		//	/foo/bar --> ['foo','bar']
-		$dirs = explode('/', $uri);
-
-		//	...
-		$this->__DebugSet(__FUNCTION__, true);
-		$this->__DebugSet(__FUNCTION__, $dirs);
-
-		//	...
-		$dir = null;
-
-		//	...
-		do{
-			//	['foo','bar'] --> foo/bar//index.php --> foo/bar/index.php
-			$path = trim(join(DIRECTORY_SEPARATOR, $dirs).DIRECTORY_SEPARATOR.'index.php', DIRECTORY_SEPARATOR);
-
-			//	...
-			if( isset($dir) ){
-				array_unshift($this->_route[self::_ARGS_], \OP\Encode($dir));
-			}
-
-			//	...
-			$full_path = $app_root.$path;
-
-			//	...
-			if( file_exists($full_path) ){
-				$this->_route[self::_END_POINT_] = $full_path;
-				break;
-			}
-
-			//	...
-		}while( false !== $dir = array_pop($dirs) );
 	}
 
 	/** EndPoint
