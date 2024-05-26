@@ -264,26 +264,6 @@ class Router implements IF_UNIT
 		return $this->_route[self::_ARGS_];
 	}
 
-	/** g11n is Globalization.
-	 *
-	 *  Globalization is not Multilingalization.
-	 *  World Wide Web is connecting of world wide people.
-	 *  People from all over the world visit your site.
-	 *
-	 *  Internationalization is not Multilingalization.
-	 *  Multilingualization is one manifestation of that policy.
-	 *
-	 *  Localization is local area unique settings.
-	 *  For example currency, tax, holiday.
-	 *
-	 * @creation 2019-03-19
-	 * @return   array
-	 */
-	function G11n()
-	{
-		return $this->_route['g11n'] ?? null;
-	}
-
 	/** Get route table.
 	 *
 	 * @created  2022-10-05
