@@ -191,33 +191,6 @@ class Router implements IF_UNIT
 		$this->__DebugSet(__FUNCTION__, true);
 		$this->__DebugSet(__FUNCTION__, $dirs);
 
-		//	Globalization.
-		if( ($g11n = $config['g11n'] ?? null) and $g11n['execute'] ){
-			//	...
-			if( $dirs[0] == 'webpack' ){
-				//	...
-				$has_locale = true;
-			}else
-			if( $has_locale = strpos($dirs[0], ':') ){
-				//	Has language code.
-				$this->_route['g11n'] = strtolower(array_shift($dirs));
-			};
-
-			//	...
-			if(!$has_locale ){
-				//	...
-				if( $pos = strpos($_SERVER['REQUEST_URI'],'?') ){
-					$que = substr($_SERVER['REQUEST_URI'], $pos);
-				};
-
-				//	...
-				$url = "app:/{$g11n['default']}/".join('/',$dirs) . ($que ?? null);
-
-				//	...
-				$this->Unit('Http')->Location($url, 307);
-			};
-		};
-
 		//	...
 		$dir = null;
 
