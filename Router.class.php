@@ -21,16 +21,11 @@ namespace OP\UNIT;
 use OP\OP_CI;
 use OP\OP_CORE;
 use OP\IF_UNIT;
-use OP\UNIT\Router\ROUTER_2018;
-
-/** Include
- *
- */
-require(__DIR__.'/ROUTER_2018.trait.php');
 
 /** Router
  *
- * @created   2009 NewWrold was born in Kozhikode.
+ * @genesis   2008 OnePiece
+ * @created   2009 NewWrold was re:born in Kozhikode.
  * @created   2015-01-30  Born at NewWorld.
  * @updated   2016-11-26  Separate to op-unit-newworld from op-core class.
  * @updated   2019-02-23  Separate to op-unit-router from op-unit-newworld.
@@ -44,7 +39,7 @@ class Router implements IF_UNIT
 	/** trait.
 	 *
 	 */
-	use OP_CORE, OP_CI, ROUTER_2018;
+	use OP_CORE, OP_CI;
 
 	/** Use for route table's associative array key name.
 	 *
@@ -80,7 +75,7 @@ class Router implements IF_UNIT
 	function __construct()
 	{
 		//	...
-		$this->_Init();
+		$this->_route = include(__DIR__.'/include/CalcRoute2018.php');
 	}
 
 	/** EndPoint
