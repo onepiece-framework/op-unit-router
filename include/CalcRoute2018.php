@@ -64,11 +64,14 @@ if( $pos = strpos($full_path, RootPath('app').'asset/') === 0 ){
 }
 
 //	HTML pass through.
+if( is_dir($full_path) ){
+	//	Directory
+}else
 if( file_exists($full_path) ){
-
 	//	Get extension.
 	$extension = substr($full_path, strrpos($full_path, '.')+1);
 
+	/*
 	//	...
 	switch( $extension ){
 		case 'html':
@@ -87,6 +90,20 @@ if( file_exists($full_path) ){
 			$mime = 'text/css';
 			break;
 	};
+	*/
+
+	//	...
+	if(!$mime = OP()->GetMimeFromExtension($extension) ){
+		OP()->Notice("This extension's MIME is not define. ({$extension})");
+	}
+
+	//	...
+	if( $extension === 'html' ){
+		//	HTML path through.
+		$io = $config['html-path-through'] ?? false;
+	}else{
+		$io = true;
+	}
 
 	//	...
 	if( $io ?? null ){
