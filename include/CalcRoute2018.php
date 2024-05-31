@@ -98,15 +98,7 @@ if( file_exists($full_path) ){
 	}
 
 	//	...
-	if( $extension === 'html' ){
-		//	HTML path through.
-		$io = $config['html-path-through'] ?? false;
-	}else{
-		$io = true;
-	}
-
-	//	...
-	if( $io ?? null ){
+	if( strpos($config['pass-through'] ?? '', $extension) !== false ){
 		//	...
 		Env::MIME($mime);
 
