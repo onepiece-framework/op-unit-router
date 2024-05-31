@@ -7,4 +7,7 @@
  * @author     Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright  Tomoaki Nagahara All right reserved.
  */
-return [];
+//	...
+return [
+	'pass-through' => 'html, css, js, txt, png',
+];
