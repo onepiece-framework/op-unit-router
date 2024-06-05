@@ -19,6 +19,11 @@ namespace OP\UNIT\ROUTER;
 use \OP\Env;
 use function \OP\RootPath;
 
+/* @var string $request_uri */
+if( empty($request_uri) ){
+	$request_uri = $_SERVER['REQUEST_URI'] ?? '/';
+}
+
 //	...
 $_route = [];
 $_route[self::_ARGS_] = [];
@@ -33,10 +38,10 @@ if(!$app_root = RootPath('app') ){
 if( Env::isHttp() or Env::isCI() ){
 
 	//	Separate of URL Query.
-	if( $pos   = strpos($_SERVER['REQUEST_URI'], '?') ){
-		$uri   = substr($_SERVER['REQUEST_URI'], 0, $pos);
+	if( $pos   = strpos($request_uri, '?') ){
+		$uri   = substr($request_uri, 0, $pos);
 	}else{
-		$uri   = $_SERVER['REQUEST_URI'];
+		$uri   = $request_uri;
 	};
 
 	//	HTTP
@@ -62,27 +67,6 @@ if( is_dir($full_path) ){
 if( file_exists($full_path) ){
 	//	Get extension.
 	$extension = substr($full_path, strrpos($full_path, '.')+1);
-
-	/*
-	//	...
-	switch( $extension ){
-		case 'html':
-			//	HTML path through.
-			$io   = $config['html-path-through'] ?? true;
-			$mime = 'text/html';
-			break;
-
-		case 'js':
-			$io   = true;
-			$mime = 'text/javascript';
-			break;
-
-		case 'css':
-			$io   = true;
-			$mime = 'text/css';
-			break;
-	};
-	*/
 
 	//	...
 	if(!$mime = OP()->GetMimeFromExtension($extension) ){
