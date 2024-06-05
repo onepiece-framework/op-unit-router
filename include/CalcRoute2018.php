@@ -20,9 +20,6 @@ use \OP\Env;
 use function \OP\RootPath;
 
 //	...
-$config = \OP\Config::Get('router');
-
-//	...
 $_route = [];
 $_route[self::_ARGS_] = [];
 $_route[self::_END_POINT_] = null;
@@ -97,8 +94,8 @@ if( file_exists($full_path) ){
 		OP()->Notice("This extension's MIME is not define. ({$extension})");
 	}
 
-	//	...
-	if( strpos($config['pass-through'] ?? '', $extension) !== false ){
+	//	HTML pass-through possible file extensions.
+	if( strpos('html, css, js, txt', $extension) !== false ){
 		//	...
 		Env::MIME($mime);
 
