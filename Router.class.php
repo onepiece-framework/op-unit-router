@@ -107,4 +107,15 @@ class Router implements IF_UNIT
 	{
 		return $this->_route;
 	}
+
+	/** Calculate route table.
+	 *
+	 * @created    2024-06-05
+	 * @param      string     $request_uri
+	 * @return     array      $route_table
+	 */
+	static function Calculate(string $request_uri='') : array
+	{
+		return include(__DIR__.'/include/CalcRoute2018.php');
+	}
 }
