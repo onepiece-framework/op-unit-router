@@ -29,13 +29,8 @@ if(!$app_root = RootPath('app') ){
 	throw new \Exception('app:/ was not set.');
 }
 
-//	If CI
-if( Env::isCI() ){
-	return $_route;
-}
-
 //	Generate real full path.
-if( Env::isHttp() ){
+if( Env::isHttp() or Env::isCI() ){
 
 	//	Separate of URL Query.
 	if( $pos   = strpos($_SERVER['REQUEST_URI'], '?') ){
