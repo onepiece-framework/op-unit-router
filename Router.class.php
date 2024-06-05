@@ -75,10 +75,10 @@ class Router implements IF_UNIT
 	function __construct()
 	{
 		//	...
-		$this->_route = include(__DIR__.'/include/CalcRoute2018.php');
+		$this->_route = self::Calculate();
 	}
 
-	/** EndPoint
+	/** Return end-point
 	 *
 	 * @created  2019-02-23
 	 * @return   string
@@ -88,7 +88,7 @@ class Router implements IF_UNIT
 		return $this->_route[self::_END_POINT_];
 	}
 
-	/** Args
+	/** Return args
 	 *
 	 * @created  2019-02-23
 	 * @return   array
@@ -98,7 +98,7 @@ class Router implements IF_UNIT
 		return $this->_route[self::_ARGS_];
 	}
 
-	/** Get route table.
+	/** Return route table.
 	 *
 	 * @created  2022-10-05
 	 * @return   array
