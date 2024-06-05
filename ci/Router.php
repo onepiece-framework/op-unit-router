@@ -19,7 +19,7 @@ declare(strict_types=1);
 namespace OP;
 
 //	...
-$ci = new CI();
+$ci = OP::Unit('CI')::Config();
 
 //	EndPoint
 $end_point = OP::MetaRoot('app').'index.php';
@@ -40,6 +40,63 @@ $result = [
 ];
 $ci->Set('Table', $result, $args);
 
+//	...
+$app_root = RootPath('app');
+
+//	...
+$method = 'Calculate';
+$args   = '/foo/bar/?foo=bar';
+$result = [
+	'args'      => [
+		'foo',
+		'bar',
+	],
+	'end-point' => $app_root . 'index.php',
+];
+$ci->Set($method, $result, $args);
+
+//	...
+$method = 'Calculate';
+$args   = '/js/index.js';
+$result = [
+	'args'      => [
+		basename($args),
+	],
+	'end-point' => $app_root . 'js/index.php',
+];
+$ci->Set($method, $result, $args);
+
+//	...
+$method = 'Calculate';
+$args   = '/css/index.css';
+$result = [
+	'args'      => [
+		basename($args),
+	],
+	'end-point' => $app_root . 'css/index.php',
+];
+$ci->Set($method, $result, $args);
+
+//	...
+$method = 'Calculate';
+$args   = '/img/';
+$result = [
+	'args'      => [],
+	'end-point' => $app_root . 'img/index.php',
+];
+$ci->Set($method, $result, $args);
+
+//	...
+$method = 'Calculate';
+$args   = '/img/404.png';
+$result = [
+	'args'      => [
+		basename($args),
+	],
+	'end-point' => $app_root . 'img/index.php',
+];
+$ci->Set($method, $result, $args);
+
 //	Template
 $path   = '../';
 $args   = [$path];
@@ -47,4 +104,4 @@ $result = 'Exception: Deny upper directory specification.';
 $ci->Set('Template', $result, $args);
 
 //	...
-return $ci->GenerateConfig();
+return $ci->Get();
