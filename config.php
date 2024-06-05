@@ -9,5 +9,4 @@
  */
 //	...
 return [
-	'pass-through' => 'html, css, js, txt, png',
 ];
