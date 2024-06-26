@@ -49,7 +49,7 @@ if( Env::isHttp() or Env::isCI() ){
 
 }else{
 	//	Shell
-	$full_path = $app_root . $_SERVER['argv'][1] ?? '';
+	$full_path = $app_root . ($_SERVER['argv'][1] ?? '');
 };
 
 //	Remove duplicate slash.
