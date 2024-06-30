@@ -115,10 +115,12 @@ do{
 	if( file_exists($full_path) ){
 		$_route[self::_END_POINT_] = $full_path;
 		break;
+	}else{
+		$dir = array_pop($dirs);
 	}
 
 	//	...
-}while( false !== $dir = array_pop($dirs) );
+}while( $dir );
 
 //	...
 return $_route;
