@@ -21,6 +21,7 @@ namespace OP\UNIT;
 use OP\OP_CI;
 use OP\OP_CORE;
 use OP\IF_UNIT;
+use OP\IF_ROUTER;
 
 /** Router
  *
@@ -34,7 +35,7 @@ use OP\IF_UNIT;
  * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
  * @copyright Tomoaki Nagahara All right reserved.
  */
-class Router implements IF_UNIT
+class Router implements IF_UNIT, IF_ROUTER
 {
 	/** trait.
 	 *
