@@ -81,11 +81,19 @@ class Router implements IF_UNIT, IF_ROUTER
 
 	/** Automatically
 	 *
-	 * @created  2024-09-05
+	 * <pre>
+	 * Router->Auto() {
+	 *   return Content( $this->_route[self::_END_POINT_] );
+	 * }
+	 * </pre>
+	 *
+	 * @created    2024-06-30
+	 * @return     string     $hash
 	 */
-	function Auto()
+	function Auto() : string
 	{
-
+		$this->_route = include(__DIR__.'/include/CalcRoute2018.php');
+		return \OP\Content( $this->_route[self::_END_POINT_] );
 	}
 
 	/** Return end-point
