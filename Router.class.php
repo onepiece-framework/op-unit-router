@@ -92,7 +92,9 @@ class Router implements IF_UNIT, IF_ROUTER
 	 */
 	function Auto() : string
 	{
+		//	Calculate the end-point.
 		$this->_route = include(__DIR__.'/include/CalcRoute2018.php');
+		//	Dispatch.
 		return \OP\Content( $this->_route[self::_END_POINT_] );
 	}
 
