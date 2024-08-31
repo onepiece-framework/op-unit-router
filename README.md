@@ -23,15 +23,6 @@ $endpoint = \OP\Unit::Singleton('Router')->EndPoint();
 $args = \OP\Unit::Singleton('Router')->Args();
 ```
 
-## G11n
-
- G11n is get locale code.
-
-```php
-$locale = \OP\Unit::Singleton('Router')->G11n();
-list($country, $language) = explode(':', $locale);
-```
-
 ### Notice
 
  Globalization is not Multilingalization.
