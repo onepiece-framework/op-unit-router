@@ -8,4 +8,4 @@
  * @copyright Tomoaki Nagahara All right reserved.
  */
 //	...
-include(__DIR__.'/Router.class.php');
+require_once(__DIR__.'/Router.class.php');
