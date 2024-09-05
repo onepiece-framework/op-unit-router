@@ -93,7 +93,7 @@ class Router implements IF_UNIT, IF_ROUTER
 	 * @created  2019-02-23
 	 * @return   string
 	 */
-	function EndPoint()
+	function EndPoint() : string
 	{
 		return $this->_route[self::_END_POINT_];
 	}
