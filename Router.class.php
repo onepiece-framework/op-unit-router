@@ -113,7 +113,7 @@ class Router implements IF_UNIT, IF_ROUTER
 	 * @created  2022-10-05
 	 * @return   array
 	 */
-	function Table()
+	function Table() : array
 	{
 		return $this->_route;
 	}
