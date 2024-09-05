@@ -79,6 +79,15 @@ class Router implements IF_UNIT, IF_ROUTER
 		$this->_route = self::Calculate();
 	}
 
+	/** Automatically
+	 *
+	 * @created  2024-09-05
+	 */
+	function Auto()
+	{
+
+	}
+
 	/** Return end-point
 	 *
 	 * @created  2019-02-23
