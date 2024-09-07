@@ -35,6 +35,7 @@ if(!$app_root = RootPath('app') ){
 }
 
 //	Generate real full path.
+//	CI is do HTTP testing from the shell.
 if( Env::isHttp() or Env::isCI() ){
 
 	//	Separate of URL Query.
@@ -45,7 +46,11 @@ if( Env::isHttp() or Env::isCI() ){
 	};
 
 	//	HTTP
-	$full_path = rtrim($_SERVER['DOCUMENT_ROOT'], '/').$uri;
+	if( Env::isShell() ){
+		$full_path = $app_root . $uri;
+	}else{
+		$full_path = $_SERVER['DOCUMENT_ROOT'] . $uri;
+	}
 
 }else{
 	//	Shell
