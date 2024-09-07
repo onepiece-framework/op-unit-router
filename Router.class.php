@@ -95,7 +95,7 @@ class Router implements IF_UNIT, IF_ROUTER
 	 */
 	function EndPoint() : string
 	{
-		return $this->_route[self::_END_POINT_];
+		return $this->_route[self::_END_POINT_] ?? '';
 	}
 
 	/** Return args
