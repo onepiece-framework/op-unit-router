@@ -18,13 +18,14 @@ declare(strict_types=1);
  */
 namespace OP;
 
-//	...
+/* @var $ci \OP\UNIT\CI\CI_Config */
 $ci = OP::Unit('CI')::Config();
 
 //	EndPoint
-$end_point = OP::MetaRoot('app').'index.php';
-$args   = true;
-$result = $end_point;
+$end_point = OP::MetaPath('app:/').'index.php';
+$args   = null;
+//	In case of git:/index.php is not exists.
+$result = file_exists($end_point) ? $end_point: '';
 $ci->Set('EndPoint', $result, $args);
 
 //	Args
@@ -36,7 +37,7 @@ $ci->Set('Args', $result, $args);
 $args   =  null;
 $result = [
 	'args'      => [],
-	'end-point' => $end_point,
+	'end-point' => file_exists($end_point) ? $end_point: null,
 ];
 $ci->Set('Table', $result, $args);
 
@@ -51,7 +52,7 @@ $result = [
 		'foo',
 		'bar',
 	],
-	'end-point' => $app_root . 'index.php',
+	'end-point' => file_exists($end_point) ? $end_point: null,
 ];
 $ci->Set($method, $result, $args);
 
