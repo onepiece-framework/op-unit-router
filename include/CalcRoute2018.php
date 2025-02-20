@@ -79,7 +79,7 @@ if( file_exists($full_path) ){
 	}
 
 	//	HTML pass-through possible file extensions.
-	if( strpos('html, css, js, txt', $extension) !== false ){
+	if( strpos('html, css, js, txt, png, ico', $extension) !== false ){
 		//	...
 		Env::MIME($mime);
 
