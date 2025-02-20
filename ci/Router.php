@@ -79,7 +79,7 @@ $result = [
 ];
 $ci->Set($method, $result, $args);
 
-//	...
+//	Good case.
 $method = 'Calculate';
 $args   = '/img/';
 $result = [
@@ -88,9 +88,31 @@ $result = [
 ];
 $ci->Set($method, $result, $args);
 
-//	...
+//	Exists png file.
 $method = 'Calculate';
 $args   = '/img/404.png';
+$result = [
+	'args'      => [
+	//	basename($args),
+	],
+	'end-point' => $app_root . 'img/404.png',
+];
+$ci->Set($method, $result, $args);
+
+//	Exists ico file.
+$method = 'Calculate';
+$args   = '/img/favicon.png';
+$result = [
+	'args'      => [
+		basename($args),
+	],
+	'end-point' => $app_root . 'img/index.php',
+];
+$ci->Set($method, $result, $args);
+
+//	Not exists png file.
+$method = 'Calculate';
+$args   = '/img/_not_found_.png';
 $result = [
 	'args'      => [
 		basename($args),
