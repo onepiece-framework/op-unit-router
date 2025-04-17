@@ -55,6 +55,7 @@ $result = [
 ];
 $ci->Set($method, $result, $args);
 
+/*
 //	...
 $method = 'Calculate';
 $args   = '/js/index.js';
@@ -96,6 +97,7 @@ $result = [
 	'end-point' => $app_root . 'img/index.php',
 ];
 $ci->Set($method, $result, $args);
+*/
 
 //	Template
 $path   = '../';
