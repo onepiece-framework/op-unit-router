@@ -42,9 +42,6 @@ $result = [
 $ci->Set('Table', $result, $args);
 
 //	...
-$app_root = RootPath('app');
-
-//	...
 $method = 'Calculate';
 $args   = '/foo/bar/?foo=bar';
 $result = [
@@ -57,6 +54,9 @@ $result = [
 $ci->Set($method, $result, $args);
 
 /*
+//	...
+$app_root = RootPath('app');
+
 //	...
 $method = 'Calculate';
 $args   = '/js/index.js';
