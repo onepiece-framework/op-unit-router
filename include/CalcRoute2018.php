@@ -109,7 +109,7 @@ do{
 
 	//	...
 	if( isset($dir) ){
-		array_unshift($_route[self::_ARGS_], \OP\Encode($dir));
+		array_unshift($_route[self::_ARGS_], OP()->Encode($dir));
 	}
 
 	//	...
