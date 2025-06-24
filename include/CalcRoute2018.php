@@ -69,18 +69,12 @@ if( is_dir($full_path) ){
 	//	Directory
 }else
 if( file_exists($full_path) ){
+
 	//	Get extension.
 	$extension = substr($full_path, strrpos($full_path, '.')+1);
 
-	//	...
-	if(!$mime = OP()->GetMimeFromExtension($extension) ){
-		OP()->Notice("This extension's MIME is not define. ({$extension})");
-	}
-
 	//	HTML pass-through possible file extensions.
 	if( strpos('html, css, js, txt, png, ico', $extension) !== false ){
-		//	...
-		Env::MIME($mime);
 
 		//	...
 		$_route[self::_END_POINT_] = $full_path;
