@@ -17,7 +17,6 @@ namespace OP\UNIT\ROUTER;
  *
  */
 use \OP\Env;
-use function \OP\RootPath;
 
 /* @var string $request_uri */
 if( empty($request_uri) ){
@@ -30,7 +29,7 @@ $_route[self::_ARGS_] = [];
 $_route[self::_END_POINT_] = null;
 
 //	...
-if(!$app_root = RootPath('app') ){
+if(!$app_root = _ROOT_APP_ ){
 	throw new \Exception('app:/ was not set.');
 }
 
@@ -61,8 +60,8 @@ if( Env::isHttp() or Env::isCI() ){
 $full_path = str_replace('//', '/', $full_path);
 
 //	Check "asset" path.
-if( $pos = strpos($full_path, RootPath('app').'asset/') === 0 ){
-	$full_path = RootPath('app').'404';
+if( $pos = strpos($full_path, $app_root.'asset/') === 0 ){
+	$full_path = $app_root.'404';
 }
 
 //	HTML pass through.
