@@ -4,7 +4,7 @@
  * @created    2024-05-27 Copy from ROUTER_2018.trait.php
  * @version    1.0
  * @package    op-unit-router
- * @author     Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+ * @author     Tomoaki Nagahara
  * @copyright  Tomoaki Nagahara All right reserved.
  */
 
@@ -12,11 +12,6 @@
  *
  */
 namespace OP\UNIT\ROUTER;
-
-/** use
- *
- */
-use \OP\Env;
 
 /* @var string $request_uri */
 if( empty($request_uri) ){
@@ -35,7 +30,7 @@ if(!$app_root = _ROOT_APP_ ){
 
 //	Generate real full path.
 //	CI is do HTTP testing from the shell.
-if( Env::isHttp() or Env::isCI() ){
+if( OP()->isHttp() or OP()->isCI() ){
 
 	//	Separate of URL Query.
 	if( $pos   = strpos($request_uri, '?') ){
@@ -45,7 +40,7 @@ if( Env::isHttp() or Env::isCI() ){
 	};
 
 	//	HTTP
-	if( Env::isShell() ){
+	if( OP()->isShell() ){
 		$full_path = $app_root . $uri;
 	}else{
 		$full_path = $_SERVER['DOCUMENT_ROOT'] . $uri;
