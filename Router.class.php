@@ -4,7 +4,7 @@
  * @created   2019-02-23 Separate from NewWorld.
  * @version   1.0
  * @package   op-unit-router
- * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+ * @author    Tomoaki Nagahara
  * @copyright Tomoaki Nagahara All right reserved.
  */
 
@@ -32,7 +32,7 @@ use OP\IF_ROUTER;
  * @updated   2019-02-23  Separate to op-unit-router from op-unit-newworld.
  * @version   1.0
  * @package   op-unit-router
- * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+ * @author    Tomoaki Nagahara
  * @copyright Tomoaki Nagahara All right reserved.
  */
 class Router implements IF_UNIT, IF_ROUTER
