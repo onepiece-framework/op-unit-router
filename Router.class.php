@@ -93,6 +93,7 @@ class Router implements IF_UNIT, IF_ROUTER
 	 * @created    2024-06-30
 	 * @return     string     $hash
 	 */
+	/*
 	function Auto() : string
 	{
 		//	Calculate the end-point.
@@ -100,6 +101,7 @@ class Router implements IF_UNIT, IF_ROUTER
 		//	Dispatch.
 		return \OP\Content( $this->_route[self::_END_POINT_] );
 	}
+	*/
 
 	/** Return end-point
 	 *
