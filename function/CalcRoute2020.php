@@ -6,7 +6,7 @@
  * @created   2020-01-03   Separate from ROUTER.trait.php
  * @version   1.0
  * @package   op-unit-router
- * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+ * @author    Tomoaki Nagahara
  * @copyright Tomoaki Nagahara All right reserved.
  */
 
