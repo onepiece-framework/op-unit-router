@@ -4,7 +4,7 @@
  * @created   2019-02-23
  * @version   1.0
  * @package   op-unit-router
- * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+ * @author    Tomoaki Nagahara
  * @copyright Tomoaki Nagahara All right reserved.
  */
 //	...
