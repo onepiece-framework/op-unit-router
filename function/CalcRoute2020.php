@@ -16,12 +16,6 @@
  */
 namespace OP\UNIT\ROUTER;
 
-/** use
- *
- * @created   2020-01-03
- */
-use function OP\RootPath;
-
 /** Calculate route from URL.
  *
  * <pre>
@@ -40,7 +34,7 @@ use function OP\RootPath;
 function Calculate(array $condition=[]):array
 {
 	//	Directory of entry point.
-	$entry_point = $condition['entry_point'] ?? RootPath('app');
+	$entry_point = $condition['entry_point'] ?? _ROOT_APP_;
 
 	//	End point file name.
 	$file_name = $condition['file_name'] ?? 'index.php';
