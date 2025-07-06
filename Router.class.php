@@ -75,8 +75,11 @@ class Router implements IF_UNIT, IF_ROUTER
 	 */
 	function __construct()
 	{
+		/*
 		//	...
 		$this->_route = self::Calculate();
+		*/
+		$this->_route = require_once(__DIR__.'/include/CalcRoute2018.php');
 	}
 
 	/** Automatically
@@ -134,8 +137,10 @@ class Router implements IF_UNIT, IF_ROUTER
 	 * @param      string     $request_uri
 	 * @return     array      $route_table
 	 */
+	/*
 	static function Calculate(string $request_uri='') : array
 	{
 		return include(__DIR__.'/include/CalcRoute2018.php');
 	}
+	*/
 }
