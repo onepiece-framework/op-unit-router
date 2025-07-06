@@ -4,7 +4,7 @@
  * @creation  2019-02-23 Separate from NewWorld.
  * @version   1.0
  * @package   unit-router
- * @author    Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+ * @author    Tomoaki Nagahara
  * @copyright Tomoaki Nagahara All right reserved.
  */
 
