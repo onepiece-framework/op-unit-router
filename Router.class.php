@@ -79,7 +79,11 @@ class Router implements IF_UNIT, IF_ROUTER
 		//	...
 		$this->_route = self::Calculate();
 		*/
+		/*
 		$this->_route = require_once(__DIR__.'/include/CalcRoute2018.php');
+		*/
+		//	require_once() --> include() for CI. Instantiate is twice.
+		$this->_route = include(__DIR__.'/include/CalcRoute2018.php');
 	}
 
 	/** Automatically
