@@ -22,7 +22,7 @@ namespace OP;
 $ci = OP::Unit('CI')::Config();
 
 //	EndPoint
-$end_point = OP::MetaPath('app:/').'index.php';
+$end_point = OP::Path('app:/').'index.php';
 $args   = null;
 //	In case of git:/index.php is not exists.
 $result = file_exists($end_point) ? $end_point: '';
